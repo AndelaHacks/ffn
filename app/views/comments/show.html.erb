@@ -25,5 +25,5 @@
   <%= @comment.ffni %>
 </p>
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Edit', edit_user_ffni_comment_path(@user, @ffni, @comment) %> |
+<%= link_to 'Back', user_ffni_comments_path %>

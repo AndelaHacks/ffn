@@ -70,7 +70,7 @@ class FfnisController < ApplicationController
     end
 
     def set_ffni
-      @ffni = Ffni.find(params[:id])
+      @ffni = @user.ffnis.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
