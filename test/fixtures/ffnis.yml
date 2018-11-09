@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  topic: MyString
+  media: MyString
+  content: MyString
+  badge: MyString
+  upvotes: MyString
+  downvotes: MyString
+  user: one
+
+two:
+  topic: MyString
+  media: MyString
+  content: MyString
+  badge: MyString
+  upvotes: MyString
+  downvotes: MyString
+  user: two

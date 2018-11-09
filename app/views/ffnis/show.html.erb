@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @ffni.topic %>
+</p>
+
+<p>
+  <strong>Media:</strong>
+  <%= @ffni.media %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @ffni.content %>
+</p>
+
+<p>
+  <strong>Badge:</strong>
+  <%= @ffni.badge %>
+</p>
+
+<p>
+  <strong>Upvotes:</strong>
+  <%= @ffni.upvotes %>
+</p>
+
+<p>
+  <strong>Downvotes:</strong>
+  <%= @ffni.downvotes %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ffni.user %>
+</p>
+
+<%= link_to 'Edit', edit_ffni_path(@ffni) %> |
+<%= link_to 'Back', ffnis_path %>

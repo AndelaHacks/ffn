@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ffnis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th>Media</th>
+      <th>Content</th>
+      <th>Badge</th>
+      <th>Upvotes</th>
+      <th>Downvotes</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ffnis.each do |ffni| %>
+      <tr>
+        <td><%= ffni.topic %></td>
+        <td><%= ffni.media %></td>
+        <td><%= ffni.content %></td>
+        <td><%= ffni.badge %></td>
+        <td><%= ffni.upvotes %></td>
+        <td><%= ffni.downvotes %></td>
+        <td><%= ffni.user %></td>
+        <td><%= link_to 'Show', ffni %></td>
+        <td><%= link_to 'Edit', edit_ffni_path(ffni) %></td>
+        <td><%= link_to 'Destroy', ffni, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ffni', new_ffni_path %>

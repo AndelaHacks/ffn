@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @comment.text %>
+</p>
+
+<p>
+  <strong>Approvals:</strong>
+  <%= @comment.approvals %>
+</p>
+
+<p>
+  <strong>Disapprovals:</strong>
+  <%= @comment.disapprovals %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @comment.user %>
+</p>
+
+<p>
+  <strong>Ffni:</strong>
+  <%= @comment.ffni %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>
