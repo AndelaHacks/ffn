@@ -1,10 +1,12 @@
 class FfnisController < ApplicationController
+  before_action :set_user, except: [:index]
   before_action :set_ffni, only: [:show, :edit, :update, :destroy]
 
   # GET /ffnis
   # GET /ffnis.json
   def index
-    @ffnis = Ffni.all
+    @user = User.includes(:ffnis).find(params[:user_id])
+    @ffnis = @user.ffnis
   end
 
   # GET /ffnis/1
@@ -14,7 +16,7 @@ class FfnisController < ApplicationController
 
   # GET /ffnis/new
   def new
-    @ffni = Ffni.new
+    @ffni = @user.ffnis.new
   end
 
   # GET /ffnis/1/edit
@@ -28,8 +30,8 @@ class FfnisController < ApplicationController
 
     respond_to do |format|
       if @ffni.save
-        format.html { redirect_to @ffni, notice: 'Ffni was successfully created.' }
-        format.json { render :show, status: :created, location: @ffni }
+        format.html { redirect_to [@user, @ffni], notice: 'Ffni was successfully created.' }
+        format.json { render :show, status: :created, location: [@user, @ffni] }
       else
         format.html { render :new }
         format.json { render json: @ffni.errors, status: :unprocessable_entity }
@@ -42,8 +44,8 @@ class FfnisController < ApplicationController
   def update
     respond_to do |format|
       if @ffni.update(ffni_params)
-        format.html { redirect_to @ffni, notice: 'Ffni was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ffni }
+        format.html { redirect_to [@user, @ffni], notice: 'Ffni was successfully updated.' }
+        format.json { render :show, status: :ok, location: [@user, @ffni] }
       else
         format.html { render :edit }
         format.json { render json: @ffni.errors, status: :unprocessable_entity }
@@ -56,13 +58,17 @@ class FfnisController < ApplicationController
   def destroy
     @ffni.destroy
     respond_to do |format|
-      format.html { redirect_to ffnis_url, notice: 'Ffni was successfully destroyed.' }
+      format.html { redirect_to [@user, :ffni], notice: 'Ffni was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_user
+      @user = User.find(params[:user_id])
+    end
+
     def set_ffni
       @ffni = Ffni.find(params[:id])
     end

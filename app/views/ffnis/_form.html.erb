@@ -1,4 +1,4 @@
-<%= form_with(model: ffni, local: true) do |form| %>
+<%= form_with(model: [@user, ffni], local: true) do |form| %>
   <% if ffni.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(ffni.errors.count, "error") %> prohibited this ffni from being saved:</h2>

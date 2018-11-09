@@ -26,9 +26,9 @@
         <td><%= ffni.upvotes %></td>
         <td><%= ffni.downvotes %></td>
         <td><%= ffni.user %></td>
-        <td><%= link_to 'Show', ffni %></td>
-        <td><%= link_to 'Edit', edit_ffni_path(ffni) %></td>
-        <td><%= link_to 'Destroy', ffni, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', [@user, ffni] %></td>
+        <td><%= link_to 'Edit', [:edit, @user, ffni] %></td>
+        <td><%= link_to 'Destroy', [@user, ffni], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Ffni', new_ffni_path %>
+<%= link_to 'New Ffni', new_user_ffni_path %>
