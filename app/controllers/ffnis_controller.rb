@@ -2,6 +2,8 @@ class FfnisController < ApplicationController
   before_action :set_user, except: [:index]
   before_action :set_ffni, only: [:show, :edit, :update, :destroy]
 
+  skip_before_action :verify_authenticity_token
+
   # GET /ffnis
   # GET /ffnis.json
   def index
@@ -12,6 +14,8 @@ class FfnisController < ApplicationController
   # GET /ffnis/1
   # GET /ffnis/1.json
   def show
+    @comment = @ffni.comments.new
+    @comment.user_id = @user.id
   end
 
   # GET /ffnis/new

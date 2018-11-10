@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :alerts
-  resources :comments
   resources :users do
     resources :ffnis do
       resources :comments

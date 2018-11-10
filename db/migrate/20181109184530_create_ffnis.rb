@@ -5,8 +5,8 @@ class CreateFfnis < ActiveRecord::Migration[5.2]
       t.string :media
       t.string :content
       t.string :badge
-      t.string :upvotes
-      t.string :downvotes
+      t.string :upvotes, default: 0
+      t.string :downvotes, default: 0
       t.references :user, foreign_key: true
 
       t.timestamps

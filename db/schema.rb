@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2018_11_09_185050) do
     t.string "media"
     t.string "content"
     t.string "badge"
-    t.string "upvotes"
-    t.string "downvotes"
+    t.string "upvotes", default: "0"
+    t.string "downvotes", default: "0"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
